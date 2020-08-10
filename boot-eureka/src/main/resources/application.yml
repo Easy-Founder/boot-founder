@@ -1,0 +1,59 @@
+spring:
+  application:
+    name: boot-eureka
+  servlet:
+    multipart:
+      enabled: true
+      max-file-size: 1MB
+      max-request-size: 10MB
+      location: /data/boot/eureka/temp
+  security:
+    user:
+      password: boot
+      name: boot
+  profiles:
+    active:
+eureka:
+  instance:
+    hostname: booteureka1
+    # 心跳间隔 默认30s
+    lease-renewal-interval-in-seconds: 5
+    # 服务失效时间 默认90s, 超过剔除服务
+    lease-expiration-duration-in-seconds: 10
+#    prefer-ip-address: true
+#    ip-address: 127.0.0.1
+  client:
+    serviceUrl:
+      defaultZone: http://boot:boot@localhost:11101/eureka/
+    #是否从eureka上获取注册信息
+    fetchRegistry: true
+    #表示是否注册自身到eureka服务器
+    registerWithEureka: true
+    # 客户端从Eureka Server集群里更新Eureka Server信息的频率
+    eureka-service-url-poll-interval-seconds: 60
+    # 定义从注册中心获取注册服务的信息
+    registry-fetch-interval-seconds: 5
+    server:
+      # 集群节点之间读取超时时间。单位：毫秒
+      peer-node-read-timeout-ms: 30000
+      # 集群之间相互更新节点信息的时间频率
+      peer-eureka-nodes-update-interval-ms: 60000
+
+server:
+  port: 11101
+  undertow:
+    accesslog:
+      enabled: false
+      dir: logs
+    direct-buffers: true
+    buffer-size: 1024
+    url-charset: UTF-8
+    threads:
+      io: 8
+      worker: 64
+
+
+logging:
+  config: classpath:logback-spring.xml
+
+
