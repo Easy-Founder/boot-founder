@@ -11,5 +11,24 @@
 
     <artifactId>boot-zuul</artifactId>
 
+    <properties>
+        <zuul-ratelimit.version>2.4.1.RELEASE</zuul-ratelimit.version>
+    </properties>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-zuul</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.marcosbarbero.cloud</groupId>
+            <artifactId>spring-cloud-zuul-ratelimit</artifactId>
+            <version>${zuul-ratelimit.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+        </dependency>
+    </dependencies>
 </project>

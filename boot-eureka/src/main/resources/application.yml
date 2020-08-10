@@ -15,7 +15,7 @@ spring:
     active:
 eureka:
   instance:
-    hostname: booteureka1
+    hostname: localhost
     # 心跳间隔 默认30s
     lease-renewal-interval-in-seconds: 5
     # 服务失效时间 默认90s, 超过剔除服务
