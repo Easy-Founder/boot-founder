@@ -29,15 +29,23 @@
         <spring-cloud.version>Hoxton.SR7</spring-cloud.version>
         <jjwt.version>0.9.1</jjwt.version>
         <fastjson.version>1.2.73</fastjson.version>
+             <logback.version>6.4</fastjson.version>
     </properties>
 
     <!--依赖包-->
     <dependencies>
         <!--测试包-->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-test</artifactId>
-        </dependency>
+         <dependency>
+         <groupId>org.springframework.boot</groupId>
+         <artifactId>spring-boot-starter-test</artifactId>
+         <scope>test</scope>
+         <exclusions>
+                  <exclusion>
+                           <groupId>org.junit.vintage</groupId>
+                           <artifactId>junit-vintage-engine</artifactId>
+                  </exclusion>
+         </exclusions>
+         </dependency>
 
         <!--鉴权-->
         <dependency>
@@ -51,6 +59,12 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
+        <!-- logBack日志集成logStash -->
+         <dependency>
+                  <groupId>net.logstash.logback</groupId>
+                  <artifactId>logstash-logback-encoder</artifactId>
+                  <version>${logback.version}</version>
+         </dependency>
     </dependencies>
 
     <!--springcloud的版本控制-->
